@@ -9,7 +9,7 @@ def mask_account_info(card: str) -> str:
     if "счет" in card.lower():
         return f"{card_split[0]} {get_mask_account(card_split[-1])}"
     else:
-        return f"{''.join(card_split[:-1])} {get_mask_card_number(card_split[-1])}"
+        return f"{' '.join(card_split[:-1])} {get_mask_card_number(card_split[-1])}"
 
 
 # Функция принимает дату и преобразовывает ее
