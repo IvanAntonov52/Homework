@@ -11,11 +11,3 @@ def get_mask_account(mask_account: str) -> str:
     new_mask_account = "**" + mask_account[-4:]
     return new_mask_account
 
-
-if __name__ == "__main__":
-    user_card = "5469 4201 1927 5780"
-    user_count = "12345678998765432135"
-    masked_info = get_mask_card_number(user_card)
-    masked_count_info = get_mask_account(user_count)
-    print("Зашифрованный номер карты:", masked_info)
-    print("Зашифрованный номер счета:", masked_count_info)

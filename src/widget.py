@@ -18,10 +18,3 @@ def get_date(date_str: str) -> str:
     "ДД.ММ.ГГГГ"("11.03.2024")."""
     date_new = date_str[8:10] + "." + date_str[5:7] + "." + date_str[0:4]
     return date_new
-
-cards = "Maestro 5469420119275780"
-date = "2024-03-11T02:26:18.671407"
-masked_info_name = mask_account_info(cards)
-date_info = get_date(date)
-print("Зашифрованный номер карты:", masked_info_name)
-print("Дата:", date_info)
