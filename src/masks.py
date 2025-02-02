@@ -1,7 +1,10 @@
 def get_mask_card_number(numbers: str) -> str:
-    """Принимает на вход номер карты в виде числа и возвращает номер с зашифрованными символами *"""
+    """ Принимает на вход номер карты в виде числа и возвращает номер с зашифрованными символами *"""
     numbers = str(numbers)
-    new_mask_card = numbers[:4] + " " + numbers[6:8] + "** ****" + numbers[-4:]
+    if len(numbers) == 16:
+        new_mask_card = numbers[:4] + " " + numbers[4:6] + "** **** " + numbers[-4:]
+    else:
+        raise ValueError('Ошибка данных')
     return new_mask_card
 
 
@@ -10,4 +13,3 @@ def get_mask_account(mask_account: str) -> str:
     mask_account = str(mask_account)
     new_mask_account = "**" + mask_account[-4:]
     return new_mask_account
-

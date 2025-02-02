@@ -2,7 +2,7 @@ from src.masks import get_mask_card_number, get_mask_account
 from src.widget import mask_account_info, get_date
 
 if __name__ == "__main__":
-    user_card = "5469 4201 1927 5780"
+    user_card = "5469420119275780"
     user_count = "12345678998765432135"
     masked_info = get_mask_card_number(user_card)
     masked_count_info = get_mask_account(user_count)
