@@ -11,5 +11,8 @@ def get_mask_card_number(numbers: str) -> str:
 def get_mask_account(mask_account: str) -> str:
     """Принимает на вход номер счет в виде числа и возвращает номер счет с зашиврофарнными символами *"""
     mask_account = str(mask_account)
-    new_mask_account = "**" + mask_account[-4:]
+    if len(mask_account) == 20:
+        new_mask_account = "**" + mask_account[-4:]
+    else:
+        raise ValueError('Ошибка данных')
     return new_mask_account
