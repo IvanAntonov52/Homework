@@ -5,9 +5,9 @@ from src.widget import get_date, mask_account_info
 @pytest.mark.parametrize(
     "card, result_1",
     [
-        ("Счет 73654108430135874305", "Счет 7365 **4305"),
+        ("Счет 12345678998765432135", "Счет 1234 **2135"),
         ("Visa Platinum 7000792289606361", "Visa Platinum 7000 79** **** 6361"),
-        ("Maestro 7000792289606361", "Maestro 7000 79** **** 6361"),
+        ("Maestro 5469420119275780", "Maestro 5469 42** **** 5780"),
     ],
 )
 def test_mask_account_info(card, result_1):
