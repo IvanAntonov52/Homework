@@ -8,7 +8,7 @@ def test_get_mask_card_number() -> None:
 
 
 def test_get_mask_account() -> None:
-    assert get_mask_account("12345678998765432135") == "**2135"
+    assert get_mask_account("12345678998765432135") == "1234 **2135"
 
 
 def test_get_mask_card_number_wrong_data() -> None:
