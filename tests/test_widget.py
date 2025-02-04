@@ -2,6 +2,7 @@ import pytest
 
 from src.widget import get_date, mask_account_info
 
+
 @pytest.mark.parametrize(
     "card, result_1",
     [
