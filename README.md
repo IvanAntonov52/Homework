@@ -44,3 +44,22 @@ state соответствует указанному значению.
 {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}, 
 {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, 
 {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}]`
+
+
+## Тестирование
+
+Проект содержит всех модулей в папках `src` и `tests`.
+
+Отчет согласно `pytest-cov`
+
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+src\__init__.py                0      0   100%
+src\masks.py                  12      0   100%
+src\processing.py              9      0   100%
+src\widget.py                 11      0   100%
+tests\__init__.py              0      0   100%
+tests\conftest.py              7      0   100%
+tests\test_masks.py           12      0   100%
+tests\test_processing.py       7      0   100%
+tests\test_widget.py          11      0   100%
