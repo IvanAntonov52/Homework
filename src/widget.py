@@ -4,7 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 # Функция принимает на вход строку формата Visa Platinum 7000792289606361, или Maestro 7000792289606361,
 # или Счет 73654108430135874305
 def mask_account_info(card: str) -> str:
-    """Возвращает счет\карту со скрытым номером """
+    """Возвращает счет/карту со скрытым номером """
     card_split = card.split()
     if "счет" in card.lower():
         return f"{card_split[0]} {get_mask_account(card_split[-1])}"

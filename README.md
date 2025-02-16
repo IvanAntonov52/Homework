@@ -172,6 +172,7 @@ for card_number in card_number_generator(1, 6):
 
 Отчет согласно `pytest-cov`
 
+```
 Name                       Stmts   Miss  Cover
 ----------------------------------------------
 src\__init__.py                0      0   100%
@@ -187,3 +188,4 @@ tests\test_processing.py       7      0   100%
 tests\test_widget.py          11      0   100%
 ----------------------------------------------
 TOTAL                        112      1    99%
+```
