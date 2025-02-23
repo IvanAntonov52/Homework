@@ -4,10 +4,9 @@ from functools import wraps
 def log(filename=None):
     """Декоратор для логирования начала и конца выполнения функции, а также результатов или ошибок."""
 
-
-    def decorator(func) :
+    def decorator(func):
         @wraps(func)
-        def wrapper(*args, **kwargs) :
+        def wrapper(*args, **kwargs):
             function_name = func.__name__
             try:
                 result = func(*args, **kwargs)
@@ -22,5 +21,7 @@ def log(filename=None):
                 else:
                     print(log_message)
             return result
+
         return wrapper
+
     return decorator
