@@ -166,6 +166,76 @@ for card_number in card_number_generator(1, 6):
 0000 0000 0000 0006
 ```
 
+### Использование функций из модуля decorators.py
+
+Декоратор log, который будет автоматически логировать начало и конец выполнения функции, а также ее результаты или
+возникшие ошибки.
+Декоратор должен принимать необязательный аргумент filename, который определяет, куда будут записываться логи (в файл
+или в консоль)
+
+**def log**
+
+``` 
+def log(filename: Optional[str] = None) -> Callable:
+    """Декоратор логирования функций, автоматически логирует начало и конец, и результаты и возникшие ошибки"""
+
+    def decorator(func: Callable) -> Callable:
+        @wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            function_name = func.__name__
+            try:
+                result = func(*args, **kwargs)
+                log_message = f"{function_name} ok: {result}"
+            except Exception as e:
+                log_message = f"{function_name} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
+                raise  # пробрасываем исключение дальше
+            finally:
+                if filename:
+                    with open(filename, "a") as f:
+                        f.write(log_message + "\n")
+                else:
+                    print(log_message)
+            return result
+
+        return wrapper
+
+    return decorator
+```
+
+#### Пример использования декоратора
+
+```
+@log(filename="mylog.txt")
+def my_function(x, y):
+    """Функция суммирует 2 числа"""
+    return x + y
+
+my_function(4, 7)
+```
+
+**Результат**
+
+```
+my_function ok: 11
+```
+
+#### Пример функции с ошибкой, где на ноль делить нельзя
+
+```
+@log(filename="mylog.txt")
+def my_error_function(x, y):
+   return x / y
+
+ my_error_function(1, 0)
+```
+
+**Результат**
+
+```
+my_error_function error: ZeroDivisionError. Inputs: (1, 0), {}
+```
+
+
 ## Тестирование
 
 Проект содержит тесты всех модулей в папках `src` и `tests`.
@@ -173,19 +243,17 @@ for card_number in card_number_generator(1, 6):
 Отчет согласно `pytest-cov`
 
 ```
-Name                       Stmts   Miss  Cover
-----------------------------------------------
-src\__init__.py                0      0   100%
+src\decorators.py             19      2    89%
 src\generators.py             13      0   100%
 src\masks.py                  12      0   100%
 src\processing.py              9      0   100%
 src\widget.py                 11      0   100%
-tests\__init__.py              0      0   100%
 tests\conftest.py             14      1    93%
+tests\test_decorator.py       25      0   100%
 tests\test_generators.py      23      0   100%
 tests\test_masks.py           12      0   100%
 tests\test_processing.py       7      0   100%
 tests\test_widget.py          11      0   100%
 ----------------------------------------------
-TOTAL                        112      1    99%
+TOTAL                        156      3    98%
 ```
