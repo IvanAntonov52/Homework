@@ -1,13 +1,12 @@
 import json
 import os
-from config import DATA_DIR
 
 
 def load_operation_json(data_file):
     """
     Загружает данные из JSON-файла.
     """
-    file_path = os.path.join(DATA_DIR, data_file)
+    file_path = os.path.join(data_file)
 
     # Проверяем, существует ли файл
     if not os.path.exists(file_path):
