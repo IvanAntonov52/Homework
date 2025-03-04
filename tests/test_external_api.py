@@ -1,5 +1,6 @@
-from unittest.mock import patch, Mock
-from src.external_api import get_exchange_rate, convert_rub
+from unittest.mock import Mock, patch
+
+from src.external_api import convert_rub, get_exchange_rate
 
 
 def test_get_exchange_rate_success():
