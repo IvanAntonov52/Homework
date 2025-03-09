@@ -25,8 +25,8 @@ def get_exchange_rate(currency):
 
 def convert_rub(transaction):
     """Конвертирует сумму транзакции в рубли (RUB)"""
-    amount = transaction["amount"]
-    currency = transaction["currency"]
+    amount = transaction["operationAmount"]["amount"]
+    currency = transaction["operationAmount"]["currency"]["code"]
 
     if currency == "RUB":
         return float(amount)
