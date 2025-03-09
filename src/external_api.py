@@ -9,7 +9,7 @@ API_KEY = os.getenv("API_KEY")
 
 
 def get_exchange_rate(currency):
-    """Получает текущий курс валюты к рублю (RUB) через API."""
+    """Получает текущий курс валют к рублю (RUB) через API."""
     if not API_KEY:
         raise ValueError("API_KEY не найден в переменных окружения.")
 
