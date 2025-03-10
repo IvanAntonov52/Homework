@@ -243,17 +243,22 @@ my_error_function error: ZeroDivisionError. Inputs: (1, 0), {}
 Отчет согласно `pytest-cov`
 
 ```
-src\decorators.py             19      2    89%
-src\generators.py             13      0   100%
-src\masks.py                  12      0   100%
-src\processing.py              9      0   100%
-src\widget.py                 11      0   100%
-tests\conftest.py             14      1    93%
-tests\test_decorator.py       25      0   100%
-tests\test_generators.py      23      0   100%
-tests\test_masks.py           12      0   100%
-tests\test_processing.py       7      0   100%
-tests\test_widget.py          11      0   100%
-----------------------------------------------
-TOTAL                        156      3    98%
+src\decorators.py               19      2    89%
+src\external_api.py             26      8    69%
+src\generators.py               13      0   100%
+src\masks.py                    12      0   100%
+src\processing.py                9      0   100%
+src\utils.py                    14      3    79%
+src\widget.py                   11      0   100%
+tests\conftest.py               14      1    93%
+tests\test_decorator.py         25      0   100%
+tests\test_external_api.py      13      0   100%
+tests\test_generators.py        23      0   100%
+tests\test_masks.py             12      0   100%
+tests\test_processing.py         7      0   100%
+tests\test_utils.py             10      0   100%
+tests\test_widget.py            11      0   100%
+------------------------------------------------
+TOTAL                          219     14    94%
+
 ```
