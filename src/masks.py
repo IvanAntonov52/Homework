@@ -19,9 +19,13 @@ def get_mask_card_number(numbers: str) -> str:
 
 def get_mask_account(mask_account: str) -> str:
     """Принимает на вход номер счет в виде числа и возвращает номер счет с зашиврофарнными символами *"""
+    masks_logger.debug(f"Начало выполнения функции get_mask_account с номером: {mask_account}")
     mask_account = str(mask_account)
     if len(mask_account) == 20:
         new_mask_account = mask_account[:4] + " " + "**" + mask_account[-4:]
+        masks_logger.debug(f"Маскированный номер счета: {new_mask_account}")
     else:
+        error_msg = "Неверный ввод счета. Номер счета должен содержать не менее 4 символов"
+        masks_logger.error(error_msg)
         raise ValueError('Ошибка данных')
     return new_mask_account

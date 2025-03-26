@@ -1,5 +1,7 @@
 from src.masks import get_mask_card_number, get_mask_account
 from src.widget import mask_account_info, get_date
+from src.utils import load_operation_json
+
 
 if __name__ == "__main__":
     user_card = "5469420119275780"
@@ -15,3 +17,15 @@ if __name__ == "__main__":
     date_info = get_date(date)
     print("Зашифрованный номер карты:", masked_info_name)
     print("Дата:", date_info)
+
+
+    json_file = "operations.json"
+
+
+    operations = load_operation_json(json_file)
+
+
+    print(f"Загружено операций: {len(operations)}")
+    if operations:
+        print("Первая операция:")
+        print(operations[0])
