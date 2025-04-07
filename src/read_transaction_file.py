@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def read_csv(file_path):
     """Читает операции из CSV-файла и возвращает список словарей."""
     df = pd.read_csv(file_path)
