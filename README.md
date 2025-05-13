@@ -236,6 +236,11 @@ my_error_function error: ZeroDivisionError. Inputs: (1, 0), {}
 ```
 
 
+## Модуль reading_financial_transactions
+
+Этот модуль предоставляет функции для чтения финансовых операций из CSV- и Excel-файлов.
+
+
 ## Тестирование
 
 Проект содержит тесты всех модулей в папках `src` и `tests`.
