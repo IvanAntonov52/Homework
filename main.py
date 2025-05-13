@@ -1,7 +1,7 @@
 from src.masks import get_mask_card_number, get_mask_account
 from src.widget import mask_account_info, get_date
 from src.utils import load_operation_json
-
+from src.processing import search_by_string, category_count
 
 if __name__ == "__main__":
     user_card = "5469420119275780"
@@ -29,3 +29,12 @@ if __name__ == "__main__":
     if operations:
         print("Первая операция:")
         print(operations[0])
+
+
+
+    data = load_operation_json('../data/operations.json')
+    print(search_by_string(data,'Перевод организации'))
+
+
+    data = load_operation_json('../data/operations.json')
+    print(category_count(data, ['Перевод организации']))
